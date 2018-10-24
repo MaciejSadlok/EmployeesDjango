@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse
+from .models import Employee
 
 
-def test_response(request):
-    return HttpResponse('faza')
+def all_employees(request):
+    employees = Employee.objects.all()
+    return render(request, 'employees_table.html', {'employees': employees})
+
+
+

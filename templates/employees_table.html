@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} Employees table {% endblock %}
+{% block body %}
+
+<div class="table-responsive">
+    <table class="table table-hover" >
+              <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Ilość godzin</th>
+                <th>Stawka godzinowa</th>
+                <th>Suma Brutto</th>
+                <th>Suma Netto</th>
+              </tr>
+        {% for employee in employees %}
+            <tbody>
+              <tr>
+                <td>{{employee.employee_name}}</td>
+                <td>{{employee.employee_surname}}</td>
+                <td>{{employee.employee_hours}}</td>
+                <td>{{employee.employee_hourly_pay}}</td>
+                <td>{{employee.employee_wage_gross}}</td>
+                <td>{{employee.employee_wage_net}}</td>
+                <td><i class="fas fa-trash"></i></td>
+              </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
