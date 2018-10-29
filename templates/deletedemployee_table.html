@@ -1,12 +1,7 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 {% block title %} Employees table {% endblock %}
 {% block body %}
 <div id="component">
-    <form method="GET">
-        {{ filter.form|crispy }}
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
     <div class="card" style="width: auto;">
         <div class="card-body">
             <div class="table-responsive">
@@ -20,7 +15,7 @@
                             <th>Suma Netto</th>
                             <th></th>
                           </tr>
-                    {% for employee in filter.qs %}
+                    {% for employee in employees %}
                         <tbody>
                             <tr>
                                 <td>{{employee.employee_name}}</td>

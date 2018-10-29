@@ -1,6 +1,17 @@
 body {
-    background-color: #ff813d;
-    padding: 20px;
+    background-image: url('images/background.png');
+    background-repeat: no-repeat;
 }
+
+.card {
+    background-color: #e7fff5;
+
+}
+
+
+#component{
+    padding: 35px;
+}
+
 
 
