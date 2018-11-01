@@ -23,12 +23,12 @@
                     {% for employee in filter.qs %}
                         <tbody>
                             <tr>
-                                <td>{{employee.employee_name}}</td>
-                                <td>{{employee.employee_surname}}</td>
-                                <td>{{employee.employee_hours}}</td>
-                                <td>{{employee.employee_hourly_pay}}</td>
-                                <td>{{employee.employee_wage_gross}}</td>
-                                <td>{{employee.employee_wage_net}}</td>
+                                <td>{{employee.name}}</td>
+                                <td>{{employee.surname}}</td>
+                                <td>{{employee.hours}}</td>
+                                <td>{{employee.hourly_pay}}</td>
+                                <td>{{employee.wage_gross}}</td>
+                                <td>{{employee.wage_net}}</td>
                                 <td>
                                     <form  method="post" action="{% url 'main:employee-delete' employee.id %}">
                                     {% csrf_token %}

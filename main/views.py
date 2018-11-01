@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Employee
 from django.views import View
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import DeleteView, CreateView
 from django.views.generic import ListView
 from django.urls import reverse_lazy
 from .filters import EmployeesFilter
@@ -23,8 +23,13 @@ def main_page(request):
 
 class DeleteEmployee(DeleteView):
     model = Employee
-    success_url = reverse_lazy('main:all_employees')
+    success_url = reverse_lazy('main:all-employees')
 
+
+class AddEmployee(CreateView):
+    model = Employee
+    template_name = 'employee_form.html'
+    fields = ['name', 'surname', 'hours', 'hourly_pay', 'wage_gross', 'wage_net']
 
 
 
