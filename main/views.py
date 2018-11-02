@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from .models import Employee
 from django.views import View
@@ -26,7 +27,7 @@ class DeleteEmployee(DeleteView):
     success_url = reverse_lazy('main:all-employees')
 
 
-class AddEmployee(CreateView):
+class AddEmployee(LoginRequiredMixin, CreateView):
     model = Employee
     template_name = 'employee_form.html'
     fields = ['name', 'surname', 'hours', 'hourly_pay', 'wage_gross', 'wage_net']

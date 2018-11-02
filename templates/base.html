@@ -31,7 +31,13 @@
       <a class="nav-item nav-link active" href="/main/index/">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="/main/add_employee/">Add new employee</a>
       <a class="nav-item nav-link" href="/main/employees/">Employees table</a>
-        <a class="nav-item nav-link" href="#">Deleted employees table</a>
+    </div>
+     <div class="navbar-nav ml-auto">
+      {% if user.is_authenticated %}
+      <a class="nav-item nav-link" href="/logout/">Logout <i class="fas fa-key"></i></a>
+      {% else %}
+      <a class="nav-item nav-link" href="/login/">Login <i class="fas fa-key"></i></a>
+      {% endif %}
     </div>
   </div>
 </nav>

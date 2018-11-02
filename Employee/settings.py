@@ -131,3 +131,11 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = 'my_media'
 
+LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'main:all-employees'
+
+LOGOUT_URL = 'logout'
+
+LOGOUT_REDIRECT_URL = 'main:all-employees'
+
