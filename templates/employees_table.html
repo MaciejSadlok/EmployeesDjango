@@ -1,50 +1,16 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% load render_table from django_tables2 %}
 {% block title %} Employees table {% endblock %}
 {% block body %}
 <div id="component">
-    <form method="GET">
-        {{ filter.form|crispy }}
-        <button type="submit" class="btn btn-primary">Search</button>
+{% if filter %}
+    <form action="" method="get" class="form form-inline">
+        {% bootstrap_form filter.form layout='inline' %}
+        {% bootstrap_button 'filter' %}
     </form>
-    <div class="card" style="width: auto;">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover" >
-                          <tr>
-                            <th>Imię</th>
-                            <th>Nazwisko</th>
-                            <th>Ilość godzin</th>
-                            <th>Stawka godzinowa</th>
-                            <th>Suma Brutto</th>
-                            <th>Suma Netto</th>
-                            <th></th>
-                          </tr>
-                    {% for employee in filter.qs %}
-                        <tbody>
-                            <tr>
-                                <td>{{employee.name}}</td>
-                                <td>{{employee.surname}}</td>
-                                <td>{{employee.hours}}</td>
-                                <td>{{employee.hourly_pay}}</td>
-                                <td>{{employee.wage_gross}}</td>
-                                <td>{{employee.wage_net}}</td>
-                                <td>
-                                    <form  method="post" action="{% url 'main:employee-delete' employee.id %}">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="employee_id" value="{{ employee.id }}"/>
-                                    <button type="submit" class="btn btn-default btn-sm">
-                                    <span><i class="fas fa-trash"></i></span>
-                                    </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    {% endfor %}
-                </table>
-            </div>
-        </div>
-    </div>
+{% endif %}
+{% render_table table %}
 </div>
 
 {% endblock %}
