@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'main',
     'django_tables2',
-    'bootstrap4'
+    'bootstrap4',
+    'widget_tweaks'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -136,9 +137,9 @@ MEDIA_ROOT = 'my_media'
 
 LOGIN_URL = 'login'
 
-LOGIN_REDIRECT_URL = 'main:all-employees'
+LOGIN_REDIRECT_URL = 'main:employees'
 
 LOGOUT_URL = 'logout'
 
-LOGOUT_REDIRECT_URL = 'main:all-employees'
+LOGOUT_REDIRECT_URL = 'main:employees'
 

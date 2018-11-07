@@ -7,10 +7,11 @@ app_name = 'main'
 
 urlpatterns = [
     path('index/', views.main_page, name='main-page'),
-    path('employees/', views.EmployeesTableView.as_view(), name='all-employees'),
-    path('delete/<int:pk>', views.DeleteEmployee.as_view(), name='employee-delete'),
-    path('add_employee/', views.AddEmployee.as_view(model=Employee, success_url="/main/employees/?name=&surname="),
-         name='add-employee')
+    path('employees/', views.custom_table, name='employees'),
+    path('delete/', views.delete_employee, name='employee-delete'),
+    path('add_employee/', views.AddEmployee.as_view(model=Employee, success_url="/main/employees/"),
+         name='add-employee'),
+    path('deleted_employees/', views.DeletedEmployeeTable.as_view(), name='deleted-employees')
 ]
 
 

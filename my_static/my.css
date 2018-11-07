@@ -9,13 +9,18 @@ body {
 .card {
     background-color: #e7fff5;
     margin: 20px;
+    padding: 25px;
+    width: 500px;
 }
 
 
 #component{
-    padding: 25px;
-}
 
+    margin: 20px;
+    background-color: #e7fff5;
+    padding: 25px;
+    float: left;
+}
 
 
 

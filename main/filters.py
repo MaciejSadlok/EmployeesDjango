@@ -6,4 +6,4 @@ class EmployeesFilter(django_filters.FilterSet):
 
     class Meta:
         model = Employee
-        fields = ('name', 'surname')
+        fields = ['name', 'surname']

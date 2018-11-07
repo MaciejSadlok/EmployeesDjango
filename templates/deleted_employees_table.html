@@ -10,12 +10,9 @@
         {% bootstrap_button 'filter' %}
     </form>
 {% endif %}
-    <form action="/main/delete/" method="post">
-      {% csrf_token %}
-      {% render_table table1 %}
-      <input type="submit" value="Usuń wybrane" class="btn btn-primary"/>
-    </form>
-</div>
+
+      {% render_table table %}
+
 
 {% endblock %}
 
