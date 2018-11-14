@@ -1,31 +1,33 @@
 {% extends 'base.html' %}
-
+{% block title %} Register page {% endblock %}
 {% block body %}
-<form method="post">
-    <div class="card" style="width: 520px;">
-        <div class="card-body">
-            <h2>Rejestracja</h2>
-            <br>
-            {% csrf_token %}
-            {% for field in form %}
-
-                <div  class="form-group">
-                    <div class="col-sm-offset-2 col-lg-10">
-                        <span class="text-danger small">{{ field.errors }}</span>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="card" style="width: 450px;">
+            <div class="card-body">
+                <form method="post">
+                    <h3>Rejestracja</h3>
+                    <br>
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div  class="form-group">
+                        <div>
+                            <span class="text-danger small">{{ field.errors }}</span>
+                        </div>
+                        <div>
+                            <label class="control-label col-sm-4"> {{ field.label_tag }}</label>
+                            {{ field }}
+                        </div>
                     </div>
-                    <div>
-                        <label class="control-label col-sm-3"> {{ field.label_tag }}</label>
-                        {{ field }}
-                    </div>
-                </div>
-            {% endfor %}
-             <button type="submit" class="btn btn-primary"> Zarejestruj</button>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-success"> Zarejestruj <i class="fas fa-user-alt"></i></button>
+                </form>
+                <br>
+                <a  href="/main/employees/"><button class="btn btn-primary">Cofnij <i class="fas fa-arrow-left fa-1,5x"></i></button></a>
+            </div>
         </div>
     </div>
-</form>
-<a  href="/main/employees/"><button class="btn btn-primary">Cofnij</button></a>
+</div>
 {% endblock %}
 
 
-
-</div>

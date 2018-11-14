@@ -8,19 +8,16 @@ body {
 
 .card {
     background-color: #e7fff5;
-    margin: 20px;
-    padding: 25px;
-    width: 500px;
+    margin-top: 15px;
+    min-width: 400px;
+    min-height: 250px;
 }
 
 
-#component{
 
-    margin: 20px;
-    background-color: #e7fff5;
-    padding: 25px;
-    float: left;
-}
+
+
+
 
 
 

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Add new employee{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-sm-4">
+    <div class="card" style="width: 450px;">
+        <div class="card-body">
+            <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                <h3>Dodawanie nowego pracownika</h3>
+                <br>
+                {% csrf_token %}
+                {% for field in form %}
+                    <div  class="form-group">
+                        <div>
+                            <span class="text-danger small">{{ field.errors }}</span>
+                        </div>
+                        <div>
+                            <label class="control-label col-sm-5"> {{ field.label_tag }}</label>
+                            {{ field }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="form-group">
+                        <button type="submit" class="btn btn-success">Dodaj</button>
+                </div>
+            </form>
+            <a  href="/main/employees/"><button class="btn btn-primary">Cofnij <i class="fas fa-arrow-left fa-1,5x"></i></button></a>
+        </div>
+    </div>
+        </div>
+</div>
+{% endblock %}

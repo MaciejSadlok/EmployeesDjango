@@ -1,19 +1,14 @@
-from django.forms import ModelForm
-from .models import Employee
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
 
-class EmployeeForm(ModelForm):
-    class Meta:
-        model = Employee
-        fields = ['name', 'surname', 'hours', 'hourly_pay', 'wage_gross', 'wage_net']
-
-
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+    username = forms.CharField(max_length=32, label="Nazwa użytkownika")
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.', label='Adres e-mail')
+    password1 = forms.CharField(widget=forms.PasswordInput(), label="Hasło")
+    password2 = forms.CharField(widget=forms.PasswordInput(), label="Powtórz hasło")
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2',)
+        fields = ('username', 'email', 'password1', 'password2')

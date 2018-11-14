@@ -3,20 +3,27 @@
 {% load render_table from django_tables2 %}
 {% block title %} Employees table {% endblock %}
 {% block body %}
-<div id="component">
-{% if filter %}
-    <form action="" method="get" class="form form-inline">
-        {% bootstrap_form filter.form layout='inline' %}
-        {% bootstrap_button 'filter' %}
-    </form>
-{% endif %}
-    <form action="/main/delete/" method="post">
-      {% csrf_token %}
-      {% render_table table1 %}
-      <input type="submit" value="Usuń wybrane" class="btn btn-primary"/>
-    </form>
-</div>
-
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+            {% if filter %}
+            <form action="" method="get" class="form form-inline">
+                {% bootstrap_form filter.form layout='inline' %}
+                <button type="Submit" class="btn btn-success">Szukaj <i class="fas fa-search"></i></button>
+            </form>
+            {% endif %}
+                <form action="/main/employees_delete/" method="post">
+                    {% csrf_token %}
+                    {% render_table table1 %}
+                    <button type="submit"class="btn btn-danger">Usuń wybrane <i class="fas fa-trash-alt"></i></button>
+                </form>
+                <br>
+                <a  href="/main/employees/"><button class="btn btn-primary">Cofnij <i class="fas fa-arrow-left fa-1,5x"></i></button></a>
+            </div>
+        </div>
+    </div>
+ </div>
 {% endblock %}
 
 
